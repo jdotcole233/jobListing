@@ -1,0 +1,30 @@
+.paginateTiles {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.paginateTiles ul {
+    display: flex;
+}
+
+.paginateTiles ul li:first-child {
+    border-radius: 5px 0 0 5px;
+} 
+
+.paginateTiles ul li:last-child {
+    border-radius: 0 5px 5px 0;
+} 
+
+.paginateTiles ul li {
+    list-style-type: none;
+    border: 1px solid gray;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.paginateTiles ul li:hover {
+    cursor: pointer;
+} 

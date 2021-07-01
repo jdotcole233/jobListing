@@ -1,0 +1,26 @@
+.searchResults {
+    border-bottom: 1px solid gray;
+    width: 80%;
+    padding: 10px;
+}
+
+.searchResults > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchResults h1 {
+    color: #3C61A5;
+    font-weight: lighter;
+}
+
+.searchResults > div > span:nth-child(1) {
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    color: rgb(82, 81, 81);
+}
+
+.searchResults > div > span:nth-child(1):hover {
+    cursor: pointer;
+}

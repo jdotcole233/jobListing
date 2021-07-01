@@ -1,0 +1,28 @@
+.tableContent  {
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.tableContent table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableContent table tbody tr td {
+    padding: 10px;
+    border-bottom: 1px solid gray;
+    border-left: none;
+    text-align: center;
+    /* white-space: pre-wrap; */
+}
+
+.tableContent table thead th {
+    padding: 10px;
+    border-bottom: 2px solid gray;
+    border-left: none;
+    /* white-space: pre-wrap; */
+}
+
