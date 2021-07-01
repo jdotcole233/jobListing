@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './searchresultstable.css';
 import Paginate from '../Pagination/paginate';
 
@@ -15,21 +16,19 @@ const TableResults = ({posting }) => {
       "Job_Number",
     ];
 
-    console.log(posting);
-    let start = 1;
-    let end = 6;
-    
+    const [setNext, setSetNext] = useState(5);
+    let pagesize = 5    
 
     return (
       <div className="tableContent">
-        <table >
+        <table>
           <thead>
             {headers.map((header) => (
               <th>{header.split("_").join(" ")}</th>
             ))}
           </thead>
           <tbody>
-            {posting.slice(start, end).map((post, key) => (
+            {posting.slice(setNext - pagesize, setNext).map((post, key) => (
               <tr key={key}>
                 {headers.map((header) => (
                   <td>{post.properties[header]}</td>
@@ -38,7 +37,7 @@ const TableResults = ({posting }) => {
             ))}
           </tbody>
         </table>
-        <Paginate data={posting} pagesize={5} />
+        <Paginate data={posting} pagesize={5} nextSet={setSetNext} />
       </div>
     );
 }
