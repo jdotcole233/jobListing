@@ -1,15 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import './main.css';
 import Nav from './Nav/nav'
 import Raleigh from '../assets/images/Raleigh.png';
 import { SearchBar, SearchResults, TableResults } from "./Search/index";
 import results from '../data/data';
+import Paginate from "./Pagination/paginate";
 
 const Main = () => {
     const features = results.results.features;
     const [filter, setFilter] = useState([])
     const [parentSearchTerm, setParentSearchTerm] = useState('');
     const [viewState, setViewState] = useState(true);
+
+    const [setNext, setSetNext] = useState(5);
+    let pagesize = 5;    
 
     useEffect(() => {
         const result = parentSearchTerm
@@ -37,9 +41,18 @@ const Main = () => {
             switchView={setViewState}
           />
           {viewState ? (
-            filter.map((posting, key) => (
-              <SearchResults key={key} posting={posting.properties} />
-            ))
+            <Fragment>
+              {
+                filter.slice(setNext - pagesize, setNext).map((posting, key) => (
+                  <SearchResults key={key} posting={posting.properties} />
+                ))
+              }
+              <Paginate
+                data={filter}
+                pagesize={pagesize}
+                nextSet={setSetNext}
+              />
+            </Fragment>
           ) : (
             <TableResults posting={filter} />
           )}

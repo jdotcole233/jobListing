@@ -20,7 +20,11 @@ const Paginate = ({ data, pagesize, nextSet }) => {
     <div className="paginateTiles">
       <ul>
         {tiles.map((tile, key) => (
-          <li key={key} onClick={() => setTilePosition(tile)}>
+          <li
+            className={tile === tilePosition && "active_page"}
+            key={key}
+            onClick={() => setTilePosition(tile)}
+          >
             {key + 1}
           </li>
         ))}

@@ -28,3 +28,9 @@
 .paginateTiles ul li:hover {
     cursor: pointer;
 } 
+
+.active_page {
+    background-color: rgb(100, 99, 99);
+    color: white;
+    font-weight: bold;
+}
